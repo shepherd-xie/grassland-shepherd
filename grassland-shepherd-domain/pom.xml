@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.orkva</groupId>
+        <artifactId>grassland-shepherd-dependencies</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>grassland-shepherd-domain</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+
+    <name>Grassland Shepherd Domain</name>
+    <url>http://www.orkva.com</url>
+    <inceptionYear>2019-Now</inceptionYear>
+
+    <dependencies>
+        <!-- Project Begin -->
+        <dependency>
+            <groupId>com.orkva</groupId>
+            <artifactId>grassland-shepherd-common</artifactId>
+        </dependency>
+        <!-- Project End -->
+        <!-- Persistence Begin -->
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>javax.persistence-api</artifactId>
+        </dependency>
+        <!-- Persistence End -->
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+    </build>
+</project>
