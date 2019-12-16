@@ -8,19 +8,17 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.access.intercept.FilterInvocationSecurityMetadataSource;
 import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
 
-@Configuration
 @EnableWebSecurity
-public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
+public class WebSecurityAutoConfiguration extends WebSecurityConfigurerAdapter {
     private final UserDetailsService userDetailsService;
 
-    public WebSecurityConfiguration(UserDetailsService userDetailsService) {
+    public WebSecurityAutoConfiguration(UserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
 
@@ -39,35 +37,33 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry authorizeRequests = http.authorizeRequests();
-
         http
                 .authorizeRequests()
 //                    .antMatchers("/users/**").anonymous()
 //                    .antMatchers("/a").hasRole("ADMIN")
 //                    .antMatchers("/b").hasAuthority("b:r")
-                .antMatchers("/users/**").anonymous()
-                .antMatchers("/users/hello").hasRole("ADMIN")
-                .anyRequest().permitAll()
-                .withObjectPostProcessor(new ObjectPostProcessor<FilterSecurityInterceptor>() {
-                    @Override
-                    public <O extends FilterSecurityInterceptor> O postProcess(O fsi) {
-                        fsi.setSecurityMetadataSource(databaseSecurityMetadataSource(fsi.getSecurityMetadataSource()));
-                        return fsi;
-                    }
-                })
+                    .antMatchers("/users/**").anonymous()
+                    .antMatchers("/users/hello").hasRole("ADMIN")
+                    .anyRequest().permitAll()
+                    .withObjectPostProcessor(new ObjectPostProcessor<FilterSecurityInterceptor>() {
+                        @Override
+                        public <O extends FilterSecurityInterceptor> O postProcess(O fsi) {
+                            fsi.setSecurityMetadataSource(databaseSecurityMetadataSource(fsi.getSecurityMetadataSource()));
+                            return fsi;
+                        }
+                    })
                 .and()
-                .formLogin()
+                    .formLogin()
                 .and()
-                .rememberMe()
+                    .rememberMe()
                 .and()
-                .anonymous()
-                .principal("ANONYMOUS")
+                    .anonymous()
+                    .principal("ANONYMOUS")
                 .and()
-                .logout()
+                    .logout()
                 .and()
-                .csrf()
-                .disable();
+                    .csrf()
+                    .disable();
     }
 
     @Bean
