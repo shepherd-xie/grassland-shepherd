@@ -7,6 +7,7 @@
         <groupId>com.orkva</groupId>
         <artifactId>grassland-shepherd-dependencies</artifactId>
         <version>1.0.0</version>
+        <relativePath>../grassland-shepherd-dependencies/pom.xml</relativePath>
     </parent>
 
     <artifactId>grassland-shepherd-persistence</artifactId>
@@ -29,15 +30,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-            <version>1.1.17</version>
         </dependency>
         <!-- Spring Boot End -->
 

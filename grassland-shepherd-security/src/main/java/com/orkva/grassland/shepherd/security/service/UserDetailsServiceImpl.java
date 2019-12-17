@@ -1,6 +1,7 @@
 package com.orkva.grassland.shepherd.security.service;
 
-import com.orkva.grassland.shepherd.persistence.repository.UserRepository;
+import com.orkva.grassland.shepherd.domain.entity.sys.SysUser;
+import com.orkva.grassland.shepherd.persistence.repository.SysUserRepository;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,15 +13,18 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    private final UserRepository userRepository;
+    private final SysUserRepository sysUserRepository;
 
-    public UserDetailsServiceImpl(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public UserDetailsServiceImpl(SysUserRepository sysUserRepository) {
+        this.sysUserRepository = sysUserRepository;
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return User.withUsername(userRepository.getByUsername(username).getUsername()).build();
+        SysUser sysUser = sysUserRepository.getByUsername(username);
+        return User.withUsername(sysUser.getUsername())
+                .password(sysUser.getPassword())
+                .build();
     }
 
 }

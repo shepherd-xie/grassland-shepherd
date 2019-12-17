@@ -1,19 +1,22 @@
 package com.orkva.grassland.shepherd.admin.controller;
 
-import com.orkva.grassland.shepherd.persistence.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.orkva.grassland.shepherd.security.annotation.CurrentUser;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-@RestController
+@Controller
 public class IndexController {
 
-    @Autowired
-    private UserRepository userRepository;
-
     @GetMapping(value = {"", "index"})
-    public Object index() {
-        return userRepository.findAll();
+    public String index() {
+        return "index";
+    }
+
+    @GetMapping(value = "users/hello")
+    @ResponseBody
+    public Object user(@CurrentUser Object currentUser) {
+        return currentUser;
     }
 
 }

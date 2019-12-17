@@ -7,6 +7,7 @@
         <groupId>com.orkva</groupId>
         <artifactId>grassland-shepherd-dependencies</artifactId>
         <version>1.0.0</version>
+        <relativePath>../grassland-shepherd-dependencies/pom.xml</relativePath>
     </parent>
 
     <artifactId>grassland-shepherd-common</artifactId>
@@ -22,6 +23,11 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.1</version>
         </dependency>
         <dependency>
             <groupId>com.github.ben-manes.caffeine</groupId>

@@ -1,12 +1,11 @@
 package com.orkva.grassland.shepherd.persistence.repository;
 
-import com.orkva.grassland.shepherd.domain.entity.sys.User;
-import com.orkva.grassland.shepherd.persistence.BaseRepository;
+import com.orkva.grassland.shepherd.domain.entity.sys.SysUser;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends BaseRepository<User> {
+public interface SysUserRepository extends BaseRepository<SysUser> {
 
-    User getByUsername(String username);
+    SysUser getByUsername(String username);
 
 }

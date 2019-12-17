@@ -7,6 +7,7 @@
         <groupId>com.orkva</groupId>
         <artifactId>grassland-shepherd-dependencies</artifactId>
         <version>1.0.0</version>
+        <relativePath>../grassland-shepherd-dependencies/pom.xml</relativePath>
     </parent>
 
     <artifactId>grassland-shepherd-domain</artifactId>

@@ -1,4 +1,4 @@
-package com.orkva.grassland.shepherd.persistence;
+package com.orkva.grassland.shepherd.persistence.repository;
 
 import com.orkva.grassland.shepherd.domain.entity.BaseEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

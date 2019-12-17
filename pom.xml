@@ -7,12 +7,14 @@
     <artifactId>grassland-shepherd</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
-    <name>grassland-shepherd</name>
+    <name>Grassland Shepherd</name>
     <description>Demo project for Spring Boot</description>
+    <packaging>pom</packaging>
 
     <modules>
         <module>grassland-shepherd-dependencies</module>
         <module>grassland-shepherd-domain</module>
+        <module>grassland-shepherd-common</module>
         <module>grassland-shepherd-persistence</module>
         <module>grassland-shepherd-service</module>
         <module>grassland-shepherd-security</module>

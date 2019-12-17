@@ -1,13 +1,11 @@
 package com.orkva.grassland.shepherd.security.configuration;
 
 import com.google.common.collect.Lists;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.access.SecurityConfig;
 import org.springframework.security.web.FilterInvocation;
 import org.springframework.security.web.access.intercept.FilterInvocationSecurityMetadataSource;
 import org.springframework.util.AntPathMatcher;
-import sun.security.krb5.Realm;
 
 import java.util.Collection;
 import java.util.List;
