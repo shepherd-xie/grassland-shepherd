@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Builder
 @Entity
 @Table(name = "tb_sys_user")
-public class SysUser extends AbstractEntity {
+public class User extends AbstractEntity {
     @Column(unique = true, nullable = false)
     private String email;
     @Column(nullable = false)
