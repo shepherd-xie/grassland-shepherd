@@ -20,11 +20,11 @@ public abstract class AbstractEntity extends AbstractDomain implements BaseEntit
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
     @CreatedDate
-    protected Instant created;
+    protected Long created;
     @CreatedBy
     protected String createdBy;
     @LastModifiedDate
-    protected Instant updated;
+    protected Long updated;
     @LastModifiedBy
     protected String updatedBy;
 
