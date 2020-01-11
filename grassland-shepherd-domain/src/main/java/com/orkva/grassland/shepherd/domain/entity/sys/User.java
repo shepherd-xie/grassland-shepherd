@@ -15,6 +15,7 @@ import org.springframework.util.Assert;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import java.io.Serializable;
 import java.util.*;
 import java.util.function.Function;
@@ -22,12 +23,13 @@ import java.util.function.Function;
 @Slf4j
 @Entity
 @Table(name = "tb_sys_user")
-public class User extends AbstractEntity implements UserDetails, CredentialsContainer {
+public final class User extends AbstractEntity implements UserDetails, CredentialsContainer {
 
     @Column(nullable = false)
     private String password;
     @Column(unique = true, nullable = false, length = 64)
     private final String username;
+    @Transient
     private final Set<GrantedAuthority> authorities;
     @Column
     private final boolean accountNonExpired;

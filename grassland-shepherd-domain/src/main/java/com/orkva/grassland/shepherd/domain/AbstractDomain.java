@@ -1,5 +1,8 @@
 package com.orkva.grassland.shepherd.domain;
 
-public class AbstractDomain implements BaseDomain {
+import lombok.Data;
+
+@Data
+public abstract class AbstractDomain implements BaseDomain {
 
 }

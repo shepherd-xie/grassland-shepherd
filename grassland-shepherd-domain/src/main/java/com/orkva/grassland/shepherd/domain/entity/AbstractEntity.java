@@ -9,8 +9,11 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import javax.persistence.*;
-import java.time.Instant;
+import javax.persistence.EntityListeners;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
 @Data
 @MappedSuperclass
@@ -18,15 +21,15 @@ import java.time.Instant;
 public abstract class AbstractEntity extends AbstractDomain implements BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected Long id;
+    private Long id;
     @CreatedDate
-    protected Long created;
+    private Long created;
     @CreatedBy
-    protected String createdBy;
+    private String createdBy;
     @LastModifiedDate
-    protected Long updated;
+    private Long updated;
     @LastModifiedBy
-    protected String updatedBy;
+    private String updatedBy;
 
     @Override
     @JsonIgnore
