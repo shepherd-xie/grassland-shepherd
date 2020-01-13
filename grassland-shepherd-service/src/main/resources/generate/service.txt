@@ -1,0 +1,10 @@
+package [(|${basePackage}.service.${entity.model}|)];
+
+import [(|${basePackage}.domain.entity.${entity.model}.${entity.className}|)];
+import [(${basePackage})].service.BaseService;
+
+import java.util.List;
+
+public interface [(${entity.className})]Service extends BaseService {
+
+}

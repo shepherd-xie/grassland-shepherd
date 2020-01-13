@@ -1,0 +1,25 @@
+package [(|${basePackage}.domain.entity.${entity.model}|)];
+
+import [(${basePackage})].domain.entity.AbstractEntity;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import java.util.List;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+@Builder
+@Entity
+@Table(name = "[(${entity.tableName})]")
+public final class [(${entity.className})] extend AbstractEntity {
+[# th:each="field : ${entity.fields}"]
+    @Column
+    private [(${field.type})] [(${field.name})];
+[/]
+}
