@@ -17,7 +17,7 @@
 
     <name>Grassland Shepherd Dependencies</name>
     <description>Demo project for Spring Boot</description>
-    <url>http://www.orkva.com</url>
+    <url>https://www.orkva.com</url>
     <inceptionYear>2019-Now</inceptionYear>
 
     <properties>
@@ -122,8 +122,6 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>

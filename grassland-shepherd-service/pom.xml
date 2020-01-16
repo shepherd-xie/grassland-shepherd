@@ -15,7 +15,7 @@
     <packaging>jar</packaging>
 
     <name>Grassland Shepherd Service</name>
-    <url>http://www.orkva.com</url>
+    <url>https://www.orkva.com</url>
     <inceptionYear>2019-Now</inceptionYear>
 
     <dependencies>
