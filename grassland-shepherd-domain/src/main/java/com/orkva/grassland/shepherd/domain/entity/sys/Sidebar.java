@@ -18,13 +18,17 @@ import java.util.List;
 @Builder
 @Entity
 @Table(name = "tb_sys_menu")
-public class Menu extends AbstractEntity {
+public class Sidebar extends AbstractEntity {
     @Column
     private String title;
     @Column
     private String link;
     @Column
     private Long parentId;
+    @Column
+    private String icon;
+    @Column
+    private Boolean active;
     @OneToMany(mappedBy = "parentId")
-    private List<Menu> subMenu;
+    private List<Sidebar> subSidebar;
 }

@@ -15,7 +15,7 @@
     <packaging>jar</packaging>
 
     <name>Grassland Shepherd Admin</name>
-    <url>http://www.orkva.com</url>
+    <url>https://www.orkva.com</url>
     <inceptionYear>2019-Now</inceptionYear>
 
     <dependencies>
@@ -55,6 +55,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
         <!-- Spring Boot End -->
 

@@ -1,0 +1,9 @@
+package [(|${basePackage}.persistence.repository.${entity.model}|)];
+
+import [(|${basePackage}.domain.entity.${entity.model}.${entity.className}|)];
+import [(|${basePackage}.persistence.repository.BaseRepository|)];
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface [(${entity.className})]Repository extends BaseRepository<[(${entity.className})]> {
+}

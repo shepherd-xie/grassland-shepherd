@@ -15,7 +15,7 @@
     <packaging>jar</packaging>
 
     <name>Grassland Shepherd Service</name>
-    <url>http://www.orkva.com</url>
+    <url>https://www.orkva.com</url>
     <inceptionYear>2019-Now</inceptionYear>
 
     <dependencies>
@@ -25,6 +25,10 @@
             <artifactId>grassland-shepherd-persistence</artifactId>
         </dependency>
         <!-- Project End -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

@@ -19,6 +19,18 @@
         <module>grassland-shepherd-service</module>
         <module>grassland-shepherd-security</module>
         <module>grassland-shepherd-admin</module>
+        <module>grassland-shepherd-code-generator-maven-plugin</module>
     </modules>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>com.orkva.plugin</groupId>
+                <artifactId>grassland-shepherd-code-generator-maven-plugin</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
