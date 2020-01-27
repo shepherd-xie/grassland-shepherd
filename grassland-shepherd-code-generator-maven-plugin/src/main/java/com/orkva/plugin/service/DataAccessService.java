@@ -2,7 +2,8 @@ package com.orkva.plugin.service;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.support.rowset.SqlRowSet;
+
+import java.util.Map;
 
 public class DataAccessService {
 
@@ -13,8 +14,8 @@ public class DataAccessService {
         mysqlDataSource.setPassword(jdbcPassword);
         JdbcTemplate jdbcTemplate = new JdbcTemplate(mysqlDataSource);
         String sql = "SELECT * FROM information_schema.TABLES WHERE TABLE_NAME = 'tb_sys_menu'";
-        SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql);
-        System.out.println(rowSet);
+        Map<String, Object> map = jdbcTemplate.queryForMap(sql);
+        map.entrySet().forEach(System.out::println);
     }
 
 }

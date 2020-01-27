@@ -8,29 +8,37 @@ import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 
 import java.io.File;
+import java.util.Objects;
 
 @Mojo(name = "generate", defaultPhase = LifecyclePhase.GENERATE_SOURCES)
 public class CodeGeneratorMojo extends AbstractMojo {
     /**
      * Output Directory.
      */
-    @Parameter(property = "grassland.shepherd.code.generator.outputDirectory",
+    @Parameter(property = "generate.outputDirectory",
             defaultValue = "${project.build.directory}/generated-sources/code-generator", required = true)
     private File outputDirectory;
-    @Parameter(property = "grassland.shepherd.code.generator.jdbcDriver")
-    private String jdbcDriver;
-    @Parameter(property = "grassland.shepherd.code.generator.jdbcURL")
+    @Parameter(property = "generate.targetProject")
+    private String targetProject;
+    @Parameter(property = "project.artifactId")
+    private String currentProject;
+    @Parameter(property = "generate.jdbcURL")
     private String jdbcURL;
-    @Parameter(property = "grassland.shepherd.code.generator.jdbcUser")
+    @Parameter(property = "generate.jdbcUser")
     private String jdbcUser;
-    @Parameter(property = "grassland.shepherd.code.generator.jdbcPassword")
+    @Parameter(property = "generate.jdbcPassword")
     private String jdbcPassword;
 
     @lombok.SneakyThrows
     @Override
     public void execute() throws MojoExecutionException {
-        System.out.println("url:" + jdbcURL);
-//        DataAccessService dataAccessService = new DataAccessService();
+        System.out.println(currentProject);
+        if (!Objects.equals(targetProject, currentProject)) {
+            return ;
+        }
+        System.out.println("Success");
+        DataAccessService dataAccessService = new DataAccessService();
+        dataAccessService.foo(jdbcURL, jdbcUser, jdbcPassword);
 
     }
 }

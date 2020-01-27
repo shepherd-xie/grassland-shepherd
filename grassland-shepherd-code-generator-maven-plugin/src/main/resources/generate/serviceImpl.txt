@@ -1,0 +1,47 @@
+package [(|${basePackage}.service.${entity.model}.impl|)];
+
+import [(|${basePackage}.domain.entity.${entity.model}.${entity.className}|)];
+import [(|${basePackage}.persistence.repository.${entity.model}.${entity.className}Repository|)];
+import [(|${basePackage}.service.${entity.model}.${entity.className}Service|)];
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
+@Service
+@Transactional(readOnly = true)
+public class [(${entity.className})]ServiceImpl implements [(${entity.className})]Service {
+    private final [(${entity.className})]Repository [(${entity.variableName})]Repository;
+
+    public MenuServiceImpl([(${entity.className})]Repository [(${entity.variableName})]Repository) {
+        this.[(${entity.variableName})]Repository = menuRepository;
+    }
+
+    @Override
+    public [(${entity.className})] get(Long id) {
+        return [(${entity.variableName})]Repository.getOne(id);
+    }
+
+    @Override
+    public List<[(${entity.className})]> list() {
+        return [(${entity.variableName})]Repository.findAll();
+    }
+
+    @Override
+    @Transactional
+    public [(${entity.className})] save([(${entity.className})] [(${entity.variableName})]) {
+        return [(${entity.variableName})]Repository.saveAndFlush([(${entity.variableName})]);
+    }
+
+    @Override
+    @Transactional
+    public [(${entity.className})] delete(Long id) {
+        [(${entity.className})] [(${entity.variableName})] = get(id);
+        if ([(${entity.variableName})] == null) {
+            return null;
+        }
+        [(${entity.variableName})]Repository.deleteById(id);
+        return [(${entity.variableName})];
+    }
+}

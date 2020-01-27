@@ -29,6 +29,12 @@
                 <groupId>com.orkva.plugin</groupId>
                 <artifactId>grassland-shepherd-code-generator-maven-plugin</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
+                <configuration>
+                    <targetProject>grassland-shepherd</targetProject>
+                    <jdbcURL>jdbc:mysql://orkva.com:3306/grassland?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false</jdbcURL>
+                    <jdbcUser>root</jdbcUser>
+                    <jdbcPassword>toor</jdbcPassword>s
+                </configuration>
             </plugin>
         </plugins>
     </build>

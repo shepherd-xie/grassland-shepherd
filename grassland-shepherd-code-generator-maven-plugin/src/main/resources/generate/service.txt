@@ -6,5 +6,8 @@ import [(${basePackage})].service.BaseService;
 import java.util.List;
 
 public interface [(${entity.className})]Service extends BaseService {
-
+    [(${entity.className})] get(Long id);
+    List<[(${entity.className})]> list();
+    [(${entity.className})] save([(${entity.className})] [(${entity.variableName})]);
+    [(${entity.className})] delete(Long id);
 }
